@@ -1,17 +1,22 @@
 package PathToTheGods.Game;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class Window extends javax.swing.JFrame{ 
+    public Image gameIcon = Toolkit.getDefaultToolkit().getImage("PathToTheGods\\Images\\Icons\\GameLogo.png");
+      
     public Window(){
+        //gameIcon = new Image("/Image/Icons/GameLogo.png");
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
-        setTitle("Tic-tac-toe");
+        setTitle("PathToTheGods");
         setLocationRelativeTo(null);
-    }
-
-    public void CreateWindow (){
         setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(gameIcon);
         setVisible(true);
     }
+
+    
 }
