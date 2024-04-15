@@ -1,16 +1,14 @@
 package PathToTheGods.Game;
 
 import javax.swing.*;
-
-import org.w3c.dom.css.RGBColor;
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class Window extends javax.swing.JFrame{ 
-    public Image gameIcon = Toolkit.getDefaultToolkit().getImage("PathToTheGods\\Images\\Icons\\GameLogo.png");
-      
+    private Image gameIcon = Toolkit.getDefaultToolkit().getImage("PathToTheGods\\Images\\Icons\\GameLogo.png");
+    static private Container container;
+    static private CardLayout cardLayout;
+
     public Window(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
@@ -21,28 +19,25 @@ public class Window extends javax.swing.JFrame{
         setVisible(true);
     }
 
-    public class Menu extends JPanel implements ActionListener{
+    //Layouts
+    Layout_MainMenu mainMenu;
+    Layout_Settings settingsMenu;
+    public void CreateAllLayouts(){
+        container = getContentPane();
+        cardLayout = new CardLayout();
+        container.setLayout(cardLayout);
 
-        public Menu(){
-            getContentPane().setBackground(Color.DARK_GRAY);
-            JButton test = new JButton();
-            test.setBounds(100, 100, 250, 100);
-            test.addActionListener(this);
-        }
 
-        public void Open(){
-            setVisible(true);
-        }
+        mainMenu = new Layout_MainMenu();
+        settingsMenu = new Layout_Settings();
 
-        public void Close(){
-            setVisible(false);
-        }
-        
-        @Override
-        public void actionPerfomed(ActionEvent e){
-
-        }
+        container.add("MainMenu", mainMenu);
+        container.add("Settings", settingsMenu);
     }
 
-    
+    public void ChangeLayout(String nameOfLayout){
+        cardLayout.show(container, nameOfLayout);
+        //cardLayout.next(container);
+    }
+
 }
