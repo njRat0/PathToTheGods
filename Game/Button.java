@@ -1,14 +1,56 @@
 package PathToTheGods.Game;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+//import java.awt.event.InputMethodEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.*;
+
 
 class Button extends JButton {
+
+    private boolean over;
+    private Color color;
+    private Color colorOver;
+    private Color colorClick;
+    private Color borderColor;
+    private int radius = 0;
+    private ImageIcon image;
+    private Dimension size;
+    private Dimension position;
+
+
+    public Dimension getPosition() {
+        return position;
+    }
+
+    public void setPosition(Dimension position) {
+        this.position = position;
+        this.setBounds(position.width, position.height, size.width, size.height);
+    }
+
+    public Dimension getSize() {
+        return size;
+    }
+
+    public void setSize(Dimension size) {
+        this.size = size;
+        this.setPreferredSize(size);
+    }
+
+    public void setImage(String sourse){
+        image = new ImageIcon(sourse);
+        this.setIcon(image);
+    }
+
+    public ImageIcon getImage(){
+        return image;
+    }
 
     public boolean isOver() {
         return over;
@@ -60,6 +102,8 @@ class Button extends JButton {
     }
 
     public Button(String txt) {
+        setSize(new Dimension(getPreferredSize()));
+        setPosition(new Dimension(0,0));
         //  Init Color
         setText(txt);
         setColor(Color.WHITE);
@@ -97,13 +141,6 @@ class Button extends JButton {
             }
         });
     }
-
-    private boolean over;
-    private Color color;
-    private Color colorOver;
-    private Color colorClick;
-    private Color borderColor;
-    private int radius = 0;
 
     @Override
     protected void paintComponent(Graphics grphcs) {
