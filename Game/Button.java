@@ -31,7 +31,7 @@ class Button extends JButton {
 
     public void setPosition(Dimension position) {
         this.position = position;
-        this.setBounds(position.width, position.height, size.width, size.height);
+        this.setBounds((int)(position.width - size.getWidth()/2), (int)(position.height - size.getHeight()/2), size.width, size.height);
     }
 
     public Dimension getSize() {

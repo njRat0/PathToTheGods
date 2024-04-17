@@ -7,41 +7,51 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class Layout_MainMenu extends JPanel implements ActionListener{
+    private Image imageOfStartButton = Toolkit.getDefaultToolkit().getImage("PathToTheGods\\Images\\Icons\\GameLogo.png");
     private Button startButton;
     private Button settingsButton;
     private Button exitButton;
-    private Button test;
+    private Dimension center = new Dimension(Main.window.getWidth()/2, Main.window.getHeight()/2);
 
     public Layout_MainMenu(){
+        setLayout(null);
+
         startButton = new Button("Start");
         settingsButton = new Button("Settings");
         exitButton = new Button("Exit");
-        test = new Button("FUCK");
-        test.setImage("PathToTheGods\\Images\\Icons\\GameLogo.png");
 
         startButton.addActionListener(this);
         settingsButton.addActionListener(this);
         exitButton.addActionListener(this);
 
+        //Setting StartButton
         startButton.setColor(new Color(0,0,0));
         startButton.setColorOver(new Color(78, 78, 78));
         startButton.setColorClick(new Color(140, 140, 140));
         startButton.setForeground(new Color(255,255,255));
-        startButton.setSize(new Dimension(100,100));
-        startButton.setPosition(new Dimension(400, 233));
+        startButton.setSize(new Dimension(200,100));
+        startButton.setPosition(new Dimension(center.width, center.height - 100));
 
-        settingsButton.setSize(new Dimension(700,332));
-        settingsButton.setPosition(new Dimension(400, 100));
-
-        //startButton.setBackground(getBackground().black);
-        //startButton.setUI(ButtonUI);
-        //startButton.setBounds(0,0,500,500);
+        //Setting SettingButton
+        settingsButton.setColor(new Color(0,0,0));
+        settingsButton.setColorOver(new Color(78, 78, 78));
+        settingsButton.setColorClick(new Color(140, 140, 140));
+        settingsButton.setForeground(new Color(255,255,255));
+        settingsButton.setSize(new Dimension(200,100));
+        settingsButton.setPosition(center);
         
-        this.add(test);
+        //Setting ExitButton
+        exitButton.setColor(new Color(0,0,0));
+        exitButton.setColorOver(new Color(78, 78, 78));
+        exitButton.setColorClick(new Color(140, 140, 140));
+        exitButton.setForeground(new Color(255,255,255));
+        exitButton.setSize(new Dimension(200,100));
+        exitButton.setPosition(new Dimension(center.width, center.height + 100));
+
+
         this.add(startButton);
         this.add(settingsButton);
         this.add(exitButton);
-        setLayout(null);
     }
 
     
