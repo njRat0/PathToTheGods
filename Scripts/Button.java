@@ -1,4 +1,4 @@
-package PathToTheGods.Game;
+package PathToTheGods.Scripts;
 
 import java.awt.Color;
 import java.awt.Dimension;

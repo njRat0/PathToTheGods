@@ -1,4 +1,4 @@
-package PathToTheGods.Game;
+package PathToTheGods.Scripts;
 
 import javax.swing.*;
 import java.awt.*;
