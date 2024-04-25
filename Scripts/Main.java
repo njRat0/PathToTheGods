@@ -1,6 +1,6 @@
 package PathToTheGods.Scripts;
 
-import PathToTheGods.maven.*;
+//import PathToTheGods.maven.*;
 //import com.google.gson.Gson; 
 //import com.google.gson.GsonBuilder; 
 
@@ -21,6 +21,8 @@ public class Main {
         System.out.println(window);
         data.removeMoney(30);
         System.out.println("\n count of money: " + data.getMoney());
+        Skeleton skeleton = new Skeleton();
+        System.out.println(skeleton.getMaxHP());
     }
 
 
